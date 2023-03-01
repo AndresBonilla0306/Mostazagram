@@ -1,18 +1,17 @@
 import React from 'react'
-import Hover from '../Components/Hover'
 import Header from '../Components/Header'
+import Hover from '../Components/Hover'
 import Stories from '../Components/Stories'
-import '../css/Estilos.css'
 
-const HomePage = () => {
+const Profile = () => {
   return (
-    <>
+    <div>
       <Header/>
       <Hover/>
       <Stories/>
-      <h1>Mostazagram</h1>
-    </>
+      Profile
+    </div>
   )
 }
 
-export default HomePage
+export default Profile

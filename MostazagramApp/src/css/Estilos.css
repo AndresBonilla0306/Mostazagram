@@ -1,0 +1,25 @@
+header{
+    display: flex;
+    background-color: #FFF166;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+body{
+    margin: 0;
+}
+.Logo{
+    display: flex;
+    align-items: center;
+}
+.LogoImg{
+    height: 60px;
+}
+.Titulo{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+}
+.LogoInput{
+    background-color: #FDF9D5;
+    margin: auto;
+}
