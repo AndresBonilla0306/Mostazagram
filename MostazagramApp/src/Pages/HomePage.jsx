@@ -1,9 +1,11 @@
 import React from 'react'
+import Hover from '../Components/Hover'
 
 const HomePage = () => {
   return (
     <div>
-        <h1>Main</h1>
+      <Hover/>
+      <h1>Mostazagram</h1>
     </div>
   )
 }
