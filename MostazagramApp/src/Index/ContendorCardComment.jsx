@@ -5,6 +5,8 @@ const ContendorCardComment = () => {
   return (
     <div>
         <CardComment/>
+        <button>Editar</button>
+        <button>Borrar</button>
         ContendorCardComment
     </div>
   )

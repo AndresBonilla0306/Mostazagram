@@ -5,6 +5,7 @@ const Story = () => {
   return (
     <div>
       <ContenedorCardStories/>
+      <button>Options</button>
       Story
     </div>
   )

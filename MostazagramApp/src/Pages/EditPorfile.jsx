@@ -4,6 +4,8 @@ const EditPorfile = () => {
   return (
     <div>
         EditPorfile
+        <button>Guardar</button>
+        <button>Cancelar</button>
     </div>
   )
 }
