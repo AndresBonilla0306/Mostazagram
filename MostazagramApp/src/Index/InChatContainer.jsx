@@ -1,8 +1,11 @@
 import React from 'react'
+import ChatCard from './ChatCard'
 
 const InChatContainer = () => {
   return (
-    <div>InChatContainer</div>
+    <div>
+      <ChatCard/>
+      InChatContainer</div>
   )
 }
 
