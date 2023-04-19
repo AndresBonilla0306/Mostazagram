@@ -10,10 +10,11 @@ const Messages = () => {
     <div>
         <Header/>
         <Hover/>
-        <Stories/>
         <ContenedorCardItemPerfil/>
         <InChatContainer/>
-        Messages
+        <div className='SBChat'>
+          <input type='Text'></input>
+        </div>
     </div>
   )
 }

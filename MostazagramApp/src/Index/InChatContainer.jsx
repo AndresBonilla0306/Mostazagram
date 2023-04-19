@@ -3,9 +3,13 @@ import ChatCard from './ChatCard'
 
 const InChatContainer = () => {
   return (
-    <div>
+    <div className='MenuChats'>
       <ChatCard/>
-      InChatContainer</div>
+      <ChatCard/>
+      <ChatCard/>
+      <ChatCard/>
+      <ChatCard/>
+    </div>
   )
 }
 

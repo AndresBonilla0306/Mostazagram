@@ -2,6 +2,7 @@ import React from 'react'
 import Header2 from '../Componentes/Header2'
 import Hover from '../Componentes/Hover'
 import Yo2 from '../assets/assets/img/Yo2.jpeg'
+import ContenedorCardImagenP from '../Index/ContenedorCardImagenP'
 
 const Profile = () => {
   return (
@@ -18,8 +19,17 @@ const Profile = () => {
           <a className='Text'>Publicaciones</a>
         </div> 
         <div className='Fotico'>
-          <img src={Yo2} className='FoticoFoto'/>
+          <img src={Yo2} className='FoticoFoto'/><br/>
+          <a>Roncancio Laureles</a><br/>
+          <a>@Chichonsito13</a><br/>
+          <a>Riyadh, Saudi Arabi</a>
         </div>
+        <div className='BtnPerfil'>
+          <button>Editar Perfil</button>
+        </div>
+      </div>
+      <div className='More'>
+        <ContenedorCardImagenP/>
       </div>
     </div>
   )
