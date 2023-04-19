@@ -1,18 +1,17 @@
 import React from 'react'
 import '../css/Estilos.css'
-import ComponentePerfil from './ComponentesHeader'
-import ComponenteSearchBar from './ComponentesHeader'
+import ComponentePerfil from './ComponentesHeader/ComponentePerfil'
+import Logo from '../assets/assets/img/Logo.png'
+//import ComponenteSearchBar from './ComponentesHeader/ComponenteSearchBar'
 
 const Header = () => {
   return (
     <header>
       <div className='Logo'>
-        <ComponentePerfil/>
-        <ComponenteSearchBar/>
-        <img src='https://cdn-icons-png.flaticon.com/512/736/736922.png' className='LogoImg'></img>
-        <h1 className='Titulo'>Mostazagram</h1>
+        <img src={Logo} className='LogoImg'></img>
       </div>
-      <input type={Text} className='LogoInput'></input>
+      <input type={Text} className='SearchBar'></input>
+      <ComponentePerfil/>
     </header>
   )
 }

@@ -1,19 +1,18 @@
 import React from 'react'
-import ComponenteItemHome from './ComponentesHover'
-import ComponenteItemPublish from './ComponentesHover'
-import ComponenteItemMessage from './ComponentesHover'
-import ComponenteItemConfig from './ComponentesHover'
-import ComponenteItemLogOut from './ComponentesHover'
+import ComponenteItemHome from './ComponentesHover/ComponentItemHome'
+import ComponenteItemPublish from './ComponentesHover/ComponenteItemPublish'
+import ComponenteItemMessage from './ComponentesHover/ComponenteItemMessage'
+import ComponenteItemConfig from './ComponentesHover/ComponenteItemConfig'
+import ComponenteItemLogOut from './ComponentesHover/ComponenteItemLogOut'
 
 const Hover = () => {
   return (
-    <div>
+    <div className='MenuV'>
       <ComponenteItemHome/>
       <ComponenteItemPublish/>
       <ComponenteItemMessage/>
       <ComponenteItemConfig/>
       <ComponenteItemLogOut/>
-        <h1>Hover</h1>
     </div>
   )
 }

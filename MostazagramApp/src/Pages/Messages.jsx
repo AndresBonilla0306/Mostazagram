@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../Components/Header'
-import Hover from '../Components/Hover'
-import Stories from '../Components/Stories'
+import Header from '../Componentes/Header'
+import Hover from '../Componentes/Hover'
+import Stories from '../Componentes/Stories'
 import ContenedorCardItemPerfil from '../Index/ContenedorCardItemPerfil'
 import InChatContainer from '../Index/InChatContainer'
 

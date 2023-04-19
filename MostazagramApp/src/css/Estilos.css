@@ -1,9 +1,16 @@
 header{
     display: flex;
-    background-color: #FFF166;
+    background-image: url(../assets/assets/img/Header.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /*background-color: #FFF166;*/
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    position: fixed;
+    width: 100%;
+    top:0;
+    margin: auto;   
 }
 body{
     margin: 0;
@@ -13,13 +20,199 @@ body{
     align-items: center;
 }
 .LogoImg{
-    height: 60px;
+    height: 80px;
+    padding: 10px;
 }
 .Titulo{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 40px;
+    font-size: 35px;
+    margin-right: 8%;
 }
-.LogoInput{
+.SearchBar{
     background-color: #FDF9D5;
     margin: auto;
+    width: 35%;
+    height: 25px;
+    border-radius: 5px;
+    border: 2px solid #6A6A6A;
+}.SearchBar:hover{
+    border:2px solid #F6B95D; 
+}
+.FotoPerfil{
+    width: 90px;
+    border: 3px solid #6A6A6A;
+    border-radius: 50%;
+    margin-right: 70px;
+}
+.MenuV{
+    background-color: #FDF9D5;
+    text-align: center;
+    position: fixed;
+    height: 100vh;
+    right: 0;
+    top: 120px;
+    width: 14%;
+}.MenuV button{
+    background-color: #ffff;
+    margin: 10px;
+    padding: 15px;
+    font-size: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #6A6A6A;
+    border:5px solid #6A6A6A;
+    border-radius: 10px;
+}.MenuV button:hover{
+    background-color: #FFF166;
+    color: #FFFF;
+    border:6px solid #6A6A6A;
+    border-radius: 10px;
+}
+.MenuStories{
+    background-color: #FDF9D5;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 120px;
+    width: 10%;
+}
+.StoriesContainer{
+    text-align: center;
+    margin: 10px;
+}
+.FotoStory{
+    width: 90px;
+    border: 3px solid red;
+    border-radius: 50%;
+}
+.Publication{
+    background-color: #FDF9D5;
+    display: flex;
+    text-align: left;
+    padding: 20px;
+    margin-top: 13%;
+    margin-bottom: -8%;
+    margin-right: 20%;
+    margin-left: 20%;
+    border-radius: 50px;
+    border: 5px solid #6A6A6A;
+}
+.FotoP{
+    width:400px;
+    border-radius: 10%;
+}
+.ButtonsMelos{
+    text-align: center;
+    margin: auto;
+}.ButtonsMelos button{
+    background-color: #FFF166;
+    margin: 20px;
+    padding: 20px;
+    font-size: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    border:5px solid #6A6A6A;
+    border-radius: 10px;
+}.ButtonsMelos button:hover{
+    background-color: white;
+    color: #F6B95D;
+    border:6px solid #F6B95D;
+    border-radius: 10px;
+}
+.Publicar{
+    text-align: center;
+    align-items:center;
+    margin: auto;
+}.CPublicar{
+    margin: 20%;
+    margin-top: 15%;
+    margin-bottom: 1%;
+    padding: 30px;
+    align-items: center;
+    background-color:#FDF9D5;
+    border: 2px solid #6A6A6A;
+    border-radius: 20px;
+}
+.FotoPubli{
+    width: 300px;
+}.ContainerAgregadas{
+    border-top: 2px solid #6A6A6A;
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    
+}
+.BtnPublicar{
+    width: 200px;
+    font-size: 30px;
+    color: white;
+    background-color: #3D8AFF;
+    border:0px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 30px;
+    padding: 20px;
+    align-items: center;
+}
+.FotoAgregada{
+    width: 200px;
+    margin: 10%;
+
+}.Login {
+    background-color: #FFF166;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25%;
+}
+.Form{
+    text-align: center;
+    padding: 20px;
+}.Form h1{
+    font-size: 60px;
+}.Form a{
+    font-size: 20px;
+}.Form input {
+    margin: 20px;
+    background-color: #FDF9D5;
+    border: 0px;
+    padding: 10px;
+    width: 250px;
+    font-size: 30px;
+    border-radius: 20px;
+}.Form button {
+    margin: 20px;
+    font-size: 30px;
+    padding: 15px;
+    background-color: #FDF9D5;
+    border: solid 2px black;
+    border-radius: 15px;
+}.Form button:hover{
+    padding: 18px;
+    background-color: #FDF9D5;
+    border: solid 3px #F6B95D;
+    color:#F6B95D;
+}.Profile{
+    margin-top: 10%;
+    margin-right: 10%;
+    gap: 100px;
+    display:flex;
+    align-items: center;
+}
+.Fotico{
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: 0%;
+    margin-bottom: 20px;
+    background-color: #FFF166;
+    border-radius: 50%;
+}.FoticoFoto{
+    border-radius: 50%;
+    width: 200px;
+    border: 5px solid #6A6A6A;
+}.InfoProfile{
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    padding: 15px;
 }

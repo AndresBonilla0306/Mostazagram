@@ -3,10 +3,8 @@ import ContenedorCardProfileStory from '../Index/ContenedorCardProfileStory'
 
 const Stories = () => {
   return (
-    <div>
-      <h1>
+    <div className='MenuStories'>
         <ContenedorCardProfileStory/>
-        Stories</h1>
     </div>
   )
 }

@@ -1,8 +1,11 @@
 import React from 'react'
+import Marinly from '../assets/assets/img/Others/Marinly.jpg'
 
 const CardImagenP = () => {
   return (
-    <div>CardImagenP</div>
+    <div>
+      <img src={Marinly} className='FotoAgregada'/>
+    </div>
   )
 }
 

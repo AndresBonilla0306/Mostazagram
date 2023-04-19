@@ -2,7 +2,9 @@ import React from 'react'
 
 const ComponenteItemConfig = () => {
   return (
-    <div>ComponenteItemConfig</div>
+    <div>
+      <button>Config</button>
+    </div>
   )
 }
 

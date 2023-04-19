@@ -2,7 +2,9 @@ import React from 'react'
 
 const ComponenteItemMessage = () => {
   return (
-    <div>ComponenteItemMessage</div>
+    <div>
+      <button>Message</button>
+    </div>
   )
 }
 

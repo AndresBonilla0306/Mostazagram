@@ -2,7 +2,9 @@ import React from 'react'
 
 const ComponenteItemLogOut = () => {
   return (
-    <div>ComponenteItemLogOut</div>
+    <div>
+      <button>Log Out</button>
+    </div>
   )
 }
 

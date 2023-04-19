@@ -3,9 +3,13 @@ import CardImagenP from './CardImagenP'
 
 const ContenedorCardImagenP = () => {
   return (
-    <div>
-        <CardImagenP/>    
-        ContenedorCardImagenP</div>
+    <div className='ContainerAgregadas'>
+      <CardImagenP/>
+      <CardImagenP/>  
+      <CardImagenP/>  
+      <CardImagenP/>
+      <CardImagenP/>
+    </div>
   )
 }
 

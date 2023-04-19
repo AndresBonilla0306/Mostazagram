@@ -1,8 +1,11 @@
 import React from 'react'
+import yo from '../../assets/assets/img/Yo2.jpeg'
 
 const ComponentePerfil = () => {
   return (
-    <div>ComponentePerfil</div>
+    <div className='perfil'>
+      <img src={yo} className='FotoPerfil'></img>
+    </div>
   )
 }
 

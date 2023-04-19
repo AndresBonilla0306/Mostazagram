@@ -1,8 +1,10 @@
 import React from 'react'
-import Hover from '../Components/Hover'
-import Header from '../Components/Header'
-import Stories from '../Components/Stories'
+import Hover from '../Componentes/Hover'
+import Header from '../Componentes/Header'
+import Stories from '../Componentes/Stories'
+import ContenedorPublicacionCard from '../Index/ContenedorPublicacionCard'
 import '../css/Estilos.css'
+
 
 const HomePage = () => {
   return (
@@ -10,7 +12,7 @@ const HomePage = () => {
       <Header/>
       <Hover/>
       <Stories/>
-      <h1>Mostazagram</h1>
+      <ContenedorPublicacionCard/>
     </>
   )
 }

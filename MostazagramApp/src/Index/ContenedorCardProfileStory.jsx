@@ -5,7 +5,11 @@ const ContenedorCardProfileStory = () => {
   return (
     <div>
         <CardProfileStory/>
-        ContenedorCardProfileStory</div>
+        <CardProfileStory/>
+        <CardProfileStory/>
+        <CardProfileStory/>
+        <CardProfileStory/>
+    </div>
   )
 }
 
