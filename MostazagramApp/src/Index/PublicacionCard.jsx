@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import like from '../assets/assets/img/buttons/Like.png'
+import comment from '../assets/assets/img/buttons/Comment.png'
+import Share from '../assets/assets/img/buttons/Share.png'
 
 const PublicacionCard = () => {
   const [post, setPost] = useState('');
@@ -15,9 +18,15 @@ const PublicacionCard = () => {
     <div className='Publication'>
       <img src={post} className='FotoP'></img>
       <div className='ButtonsMelos'>
-        <button>Chat</button><br></br>
-        <button>Comment</button><br></br>
-        <button>Share</button>
+        <button>
+          <img src={like}/>
+        </button><br></br>
+        <button>
+          <img src={comment}/>
+        </button><br></br>
+        <button>
+          <img src={Share}/>
+        </button>
       </div>
     </div>
   )

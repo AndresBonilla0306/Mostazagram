@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/Estilos.css'
-import Logo from '../assets/assets/img/Logo.png'
+import Logo from '../assets/assets/img/Logito.png'
 
 const Header2 = () => {
   return (

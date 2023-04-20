@@ -31,7 +31,9 @@ const CardProfileStory = () => {
 
   return (
     <div className='StoriesContainer'>
-      <img src={story} className='FotoStory' ></img>
+      <button> 
+        <img src={story} className='FotoStory' ></img>
+      </button>
     </div>
   )
 }

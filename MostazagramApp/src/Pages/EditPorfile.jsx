@@ -1,14 +1,20 @@
 import React from 'react'
 import Header2 from '../Componentes/Header2'
 import Yo2 from '../assets/assets/img/Yo2.jpeg'
+import { useNavigate } from 'react-router-dom'
 
 const EditPorfile = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/Profile');
+  };
   return (
     <div>
       <Header2/>
       <div className='Profile2'>
         <div className='EdBtn1'>
-          <button>Cancelar</button>
+          <button onClick={handleClick}>Cancelar</button>
         </div>
         <div className='EdInfo'>
           <img src={Yo2} className='FoticoFoto'/><br/>
@@ -25,7 +31,7 @@ const EditPorfile = () => {
           <input type='text'></input><br/>
         </div>
         <div className='EdBtn2'>
-          <button>Guardar</button>
+          <button onClick={handleClick}>Guardar</button>
         </div>
       </div>
     </div>

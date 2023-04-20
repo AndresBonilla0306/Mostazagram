@@ -3,8 +3,14 @@ import Header2 from '../Componentes/Header2'
 import Hover from '../Componentes/Hover'
 import Yo2 from '../assets/assets/img/Yo2.jpeg'
 import ContenedorCardImagenP from '../Index/ContenedorCardImagenP'
+import { useNavigate } from 'react-router-dom'
 
 const Profile = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/Edit');
+  };
   return (
     <div>
       <Header2/>
@@ -25,7 +31,7 @@ const Profile = () => {
           <a>Riyadh, Saudi Arabi</a>
         </div>
         <div className='BtnPerfil'>
-          <button>Editar Perfil</button>
+          <button onClick={handleClick}>Editar Perfil</button>
         </div>
       </div>
       <div className='More'>
