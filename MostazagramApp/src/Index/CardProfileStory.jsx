@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CardProfileStory = () => {
+
+  const navegar = useNavigate();
+
+  const Click = () =>{
+    navegar('/Story')
+  }
   const [story, setStory] = useState('');
   useEffect(() => {
     async function obtenerPost() {
@@ -31,7 +38,7 @@ const CardProfileStory = () => {
 
   return (
     <div className='StoriesContainer'>
-      <button> 
+      <button onClick={Click}> 
         <img src={story} className='FotoStory' ></img>
       </button>
     </div>
