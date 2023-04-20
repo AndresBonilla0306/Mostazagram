@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import LogOut from '../../assets/assets/img/buttons/LogOut.png'
+import LogOut from '../../assets/assets/img/buttons/Logout3.png'
 
 const ComponenteItemLogOut = () => {
   const navigate = useNavigate();

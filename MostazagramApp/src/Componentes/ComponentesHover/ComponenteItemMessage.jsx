@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import Chat from '../../assets/assets/img/buttons/Chat1.png'
+import Chat from '../../assets/assets/img/buttons/Chat3.png'
 
 const ComponenteItemMessage = () => {
 
@@ -12,7 +12,7 @@ const ComponenteItemMessage = () => {
   return (
     <div>
       <button onClick={handleClick}>
-        <img src={Chat} className='LChat'></img>
+        <img src={Chat}></img>
       </button>
     </div>
   )
