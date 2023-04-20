@@ -11,7 +11,6 @@ const Hover = () => {
       <ComponenteItemHome/>
       <ComponenteItemPublish/>
       <ComponenteItemMessage/>
-      <ComponenteItemConfig/>
       <ComponenteItemLogOut/>
     </div>
   )

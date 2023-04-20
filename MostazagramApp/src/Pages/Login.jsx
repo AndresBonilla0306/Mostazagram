@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
-import Logo from '../assets/assets/img/Logo.png'
+import Logo from '../assets/assets/img/Logito.png'
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
+  const Register = () => {
+    navigate('/Register');
+  };
 
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -44,6 +51,7 @@ const Login = () => {
 
       } else {
         setIsSubmitted(true);
+        navigate('/');
         
       }
     } else {
@@ -68,6 +76,7 @@ const Login = () => {
         <img src={Logo}></img>
       </div>
       <form className='Form' onSubmit={handleSubmit}>
+        <h1>Mostazagram</h1>
         <a>Usuario</a><br/>
           <input
             type='text'
@@ -80,7 +89,8 @@ const Login = () => {
             name="pass"
           />
           {renderErrorMessage("pass")}<br/>
-        <button type="submit">Registrarse</button>
+        <button type="submit">Iniciar sesion</button><br/>
+        <button onClick={Register}>¿No tienes una cuenta?</button>
       </form>
     </div>
     

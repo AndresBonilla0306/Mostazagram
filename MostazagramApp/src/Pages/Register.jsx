@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import Logo from '../assets/assets/img/Logo.png'
+import Logo from '../assets/assets/img/Logito.png'
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState({
     usuario: "",
     nombreCom: "",
@@ -20,13 +23,15 @@ const Register = () => {
     
     console.log("REGISTRADISIMO MI PAPA ")
     console.log("*C VA AL LOGIN*")
+    navigate('/');
   };
   return (
-    <div className='Login'>
+    <div className='Login2'>
       <div className='ContenedorLogo'>
         <img src={Logo}></img>
       </div>
       <form className='Form' onSubmit={handleSubmit}>
+        <h1>Mostazagram</h1>
         <a>Usuario</a><br/>
           <input
             type='text'

@@ -4,7 +4,9 @@ import Nunez from '../assets/assets/img/Nunez.jpeg'
 const CardProfileStory = () => {
   return (
     <div className='StoriesContainer'>
-      <img src={Nunez} className='FotoStory'></img>
+      <button> 
+        <img src={Nunez} className='FotoStory'></img>
+      </button>
     </div>
   )
 }
