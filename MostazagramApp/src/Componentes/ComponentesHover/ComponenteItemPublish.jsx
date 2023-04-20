@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
-import Publicar1 from "../../assets/assets/img/buttons/Publicar1.png"  
+import Publicar1 from "../../assets/assets/img/buttons/Publicar3.png"  
 
 const ComponenteItemPublish = () => {
 
@@ -13,7 +13,7 @@ const ComponenteItemPublish = () => {
   return (
     <div>
       <button onClick={handleClick}>
-        <img src={Publicar1} className='LPublicar'></img>
+        <img src={Publicar1}></img>
       </button>
     </div>
   )
