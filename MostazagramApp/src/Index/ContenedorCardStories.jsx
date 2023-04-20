@@ -1,5 +1,5 @@
 import React from 'react'
-import CardStorys from './CardStories'
+import CardStories from './CardStories'
 
 const ContenedorCardStories = () => {
   return (

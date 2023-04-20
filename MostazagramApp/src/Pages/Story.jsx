@@ -6,7 +6,6 @@ const Story = () => {
     <div>
       <ContenedorCardStories/>
       <button>Options</button>
-      Story
     </div>
   )
 }

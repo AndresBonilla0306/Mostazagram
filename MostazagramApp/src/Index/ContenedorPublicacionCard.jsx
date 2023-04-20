@@ -7,6 +7,8 @@ const ContenedorPublicacionCard = () => {
         <PublicacionCard/>
         <PublicacionCard/>
         <PublicacionCard/>
+        <PublicacionCard/>
+        <PublicacionCard/>
     </div>
   )
 }
