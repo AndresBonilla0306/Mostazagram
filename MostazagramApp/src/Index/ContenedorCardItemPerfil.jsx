@@ -2,10 +2,8 @@ import React from 'react'
 import CardItemPerfil from './CardItemPerfil'
 const ContenedorCardItemPerfil = () => {
   return (
-    <div>
+    <div className='CradPerfil'>
         <CardItemPerfil/>
-        ContenedorCardItemPerfil
-
     </div>
   )
 }
