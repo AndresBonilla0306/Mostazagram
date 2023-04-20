@@ -1,15 +1,14 @@
-import React from 'react'
-import CardComment from './CardComment'
+import React from 'react';
+import CardComment from './CardComment';
 
-const ContendorCardComment = () => {
+const ContendorCardComment = ({ fetchComment }) => {
   return (
     <div>
-        <CardComment/>
-        <button>Editar</button>
-        <button>Borrar</button>
-        ContendorCardComment
+      <CardComment fetchComment={fetchComment} />
+      {/* <button>Editar</button>
+      <button>Borrar</button> */}
     </div>
   )
 }
 
-export default ContendorCardComment
+export default ContendorCardComment;
