@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ContenedorCardStories from '../Index/ContenedorCardStories'
 
 const CardStories = () => {
   const [story, setStory] = useState('');
