@@ -5,8 +5,6 @@ const ContenedorCardStories = () => {
   return (
     <div>
         <CardStories/>
-        ContenedorCardStories
-        
     </div>
   )
 }

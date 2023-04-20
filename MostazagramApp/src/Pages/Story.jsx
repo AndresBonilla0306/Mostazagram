@@ -3,9 +3,8 @@ import ContenedorCardStories from '../Index/ContenedorCardStories'
 
 const Story = () => {
   return (
-    <div>
+    <div className='StoryTime'>
       <ContenedorCardStories/>
-      <button>Options</button>
     </div>
   )
 }
