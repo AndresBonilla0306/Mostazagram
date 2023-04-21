@@ -25,7 +25,9 @@ const PublicacionCard = () => {
   
   return (
     <div className='Publication'>
-      <img src={post} className='FotoP'></img>
+      <div className='FotoPD'>
+        <img src={post} className='FotoP'></img>
+      </div>
       <div className='ButtonsMelos'>
         <button>
           <img src={like}/>
@@ -37,9 +39,13 @@ const PublicacionCard = () => {
           <img src={Share}/>
         </button>
       </div>
-      {showComments && <ContendorCardComment fetchComment={CardComment} />} 
-      <br />
-      {showComments && <ContendorCardComment fetchComment={CardComment} />}
+      <div className='Comentarios'>
+        {showComments && <ContendorCardComment fetchComment={CardComment} />} 
+        <br />
+        {showComments && <ContendorCardComment fetchComment={CardComment} />}
+        <br />
+        {showComments && <ContendorCardComment fetchComment={CardComment} />}
+      </div>
     </div>
   )
 }
