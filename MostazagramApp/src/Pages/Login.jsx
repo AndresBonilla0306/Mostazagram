@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import Logo from '../assets/assets/img/Logito.png'
+import facebook from '../assets/assets/img/buttons/BOTON_FACEBOOK_Mesa de trabajo 1.png'
+import google from '../assets/assets/img/buttons/BOTON_GOOGLE_Mesa de trabajo 1.png'
 import { useNavigate } from 'react-router-dom';
 
 
+
 const Login = () => {
+  
 
   const navigate = useNavigate();
 
@@ -76,20 +80,31 @@ const Login = () => {
         <img src={Logo}></img>
       </div>
       <form className='Form' onSubmit={handleSubmit}>
-        <h1>Mostazagram</h1>
-        <a>Usuario</a><br/>
+        <h1>Mostazagram</h1><br/>
           <input
             type='text'
+            placeholder="Usuario"
+            // className="half-placeholder"
             name="uname"
           />
-          {renderErrorMessage("uname")}<br/>
-        <a>Contraseña</a><br/>
+          {renderErrorMessage("uname")}<br/><br/>
           <input
-            type='text'
+            type="password"
+            placeholder="Contraseña"
+            // className="half-placeholder"
             name="pass"
           />
           {renderErrorMessage("pass")}<br/>
+        <button>
+          <img src={facebook}/>
+        </button>
+        <button>
+          <img src={google}/>
+        </button> 
+        
+        <br/>
         <button type="submit">Iniciar sesion</button><br/>
+        
         <button onClick={Register}>¿No tienes una cuenta?</button>
       </form>
     </div>
