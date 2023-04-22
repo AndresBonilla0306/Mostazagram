@@ -80,7 +80,7 @@ const Login = () => {
         <img src={Logo}></img>
       </div>
       <form className='Form' onSubmit={handleSubmit}>
-        <h1>Mostazagram</h1><br/>
+        <h1>Mostazagram</h1>
           <input
             type='text'
             placeholder="Usuario"
@@ -95,10 +95,10 @@ const Login = () => {
             name="pass"
           />
           {renderErrorMessage("pass")}<br/>
-        <button>
+        <button className='ButtonsSN'>
           <img src={facebook}/>
         </button>
-        <button>
+        <button className='ButtonsSN'>
           <img src={google}/>
         </button> 
         
