@@ -167,12 +167,15 @@ body{
 }.Comentarios{
     display: block;
     background-color: transparent;
-    height: 100%;
-    max-height: 400px;
-    min-height: 200px;
-    overflow-y: auto;
+    height: 600px;
+    overflow-y:auto;
     padding-top: 10px;
-}.Comentarios img {
+}@media(max-width:600px){
+    .Comentarios{
+        height: 200px;
+    }
+}
+.Comentarios img {
     top: 0;
     left: 0;
     right: 0;

@@ -9,7 +9,6 @@ const ContenedorCardImagenP = () => {
       <CardImagenP/>  
       <CardImagenP/>  
       <CardImagenP/>
-      <CardImagenP/>
     </div>
   )
 }
