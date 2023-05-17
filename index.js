@@ -1,9 +1,10 @@
 import express from "express"
 import * as dotenv from "dotenv";
-
+import { DBconnection } from "./database/configmongodb.js";
 import users from "./routes/users.routes.js"
 
 dotenv.config();
+DBconnection();
 
 const app = express();
 app.use("/api/users", users)
