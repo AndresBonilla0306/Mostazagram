@@ -1,23 +1,34 @@
 import { request, response } from "express"
-import {userModel} from "../models/userModel.js"
+import { userModel } from "../models/userModel.js"
+
 const getUsers = (request, response) => {
     // response.json({msg: "Muy buenas a todos guapisimos"})
     response.send("<h1>Muy buenas a todos guarrisimos</h1>")
 }
-const createUser = async (req=request, res=response)=>{
-    const {name, email, user} = req.body
+const createUser = async (req = request, res = response) => {
+    const { name, email, user, pass } = req.body
     try {
         // console.log(req)
-        
-        const newUser = new userModel({user})
+
+        const newUser = new userModel({ user, name, email, pass })
         await newUser.save()
-        res.json({msg: newUser})
+        return res.json({ msg: newUser})
 
     } catch (error) {
         console.log(error)
-        res.status(502).json({msg:"algo"})
-    } 
-   
-   
+        res.status(502).json({ msg: "algo" })
+    }
+
+
 }
-export {getUsers, createUser}
+const loginUsuario = (req, res = request) => {
+    res.json({
+        ok: true
+    })
+}
+const revalidarToken = (req, res = request) => {
+    res.json({
+        ok: true
+    })
+}
+export { getUsers, createUser, loginUsuario, revalidarToken }
