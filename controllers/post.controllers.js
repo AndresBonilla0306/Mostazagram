@@ -16,8 +16,6 @@ const createPost = async (req = request, res = response) => {
         console.log(error)
         res.status(502).json({ msg: "Pero madre mía Willy" })
     }
-
-
 }
 
 export { getPost, createPost }
