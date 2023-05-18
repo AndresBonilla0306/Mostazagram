@@ -6,6 +6,8 @@ import users from "./routes/users.routes.js"
 dotenv.config();
 DBconnection();
 
+
 const app = express();
+app.use(express.json());
 app.use("/api/users", users)
 app.listen(process.env.PORT, ()=> console.log("Salchipapa " + process.env.PORT) )
