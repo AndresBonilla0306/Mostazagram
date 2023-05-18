@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/AndresBonilla0306/Mostazagram#readme",
   "dependencies": {
+    "cloudinary": "^1.37.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
