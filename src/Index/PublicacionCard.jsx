@@ -6,19 +6,10 @@ import Share from '../assets/assets/img/buttons/Share.png'
 import ContendorCardComment from './ContendorCardComment';
 import CardComment from './CardComment';
 
-const PublicacionCard = () => {
-  const [post, setPost] = useState('');
+
+const PublicacionCard = ({data}) => {
+  
   const [showComments, setShowComments] = useState(false);
-  
-  useEffect(() => {
-    async function obtenerPost() {
-      const randomNum = Math.floor(Math.random() * 1000);
-      const respuesta = await axios.get(`https://picsum.photos/200?random=${randomNum}`);
-      setPost(respuesta.config.url);
-    }
-    obtenerPost();
-  }, []);
-  
   const toggleComments = () => {
     setShowComments(!showComments);
   };
@@ -26,7 +17,7 @@ const PublicacionCard = () => {
   return (
     <div className='Publication'>
       <div className='FotoPD'>
-        <img src={post} className='FotoP'></img>
+        <img src={data.photo} className='FotoP'></img>
       </div>
       <div className='ButtonsMelos'>
         <button>
