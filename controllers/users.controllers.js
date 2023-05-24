@@ -1,7 +1,7 @@
 import { request, response } from "express"
 import { userModel } from "../models/userModel.js"
 
-const getUsers = (request, response) => {
+const getUser = (request, response) => {
     // response.json({msg: "Muy buenas a todos guapisimos"})
     response.send("<h1>Muy buenas a todos guarrisimos</h1>")
 }
@@ -10,7 +10,7 @@ const createUser = async (req = request, res = response) => {
     try {
         // console.log(req)
 
-        const newUser = new userModel({ user, name, email, pass })
+        const newUser = new userModel({ name, email, user, pass })
         await newUser.save()
         return res.json({ msg: newUser})
 
@@ -31,4 +31,4 @@ const revalidarToken = (req, res = request) => {
         ok: true
     })
 }
-export { getUsers, createUser, loginUsuario, revalidarToken }
+export { getUser, createUser, loginUsuario, revalidarToken }
