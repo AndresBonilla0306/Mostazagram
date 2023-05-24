@@ -9,4 +9,13 @@ const getPosts = async () => {
   return res.data;
 };
 
-export { getPosts };
+const createUser = async (name, email, user, pass) => {
+  const res = await instance.post('/user', {
+    name,
+    email,
+    user,
+    pass,
+  });
+  return res.data;
+}
+export { getPosts, createUser };

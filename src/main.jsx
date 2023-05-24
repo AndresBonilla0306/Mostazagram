@@ -10,6 +10,7 @@ import Messages from './Pages/Messages'
 import Profile from './Pages/Profile'
 import Register from './Pages/Register'
 import Story from './Pages/Story'
+import Singup from './Pages/Singup'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -23,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/Edit' element={<EditProfile/>}/>
           <Route path='/Chat' element={<Messages/>}/>
           <Route path='/Profile' element={<Profile/>}/>
-          <Route path='/Register' element={<Register/>}/>
+          <Route path='/Register' element={<Singup/>}/>
           <Route path='/Story' element={<Story/>}/>
         </Routes>
     </BrowserRouter>
