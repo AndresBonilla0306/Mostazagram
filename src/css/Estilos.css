@@ -438,7 +438,7 @@ body{
 }.CardItem a{
     font-size: 25px;
 }
-.SBChat{
+/* .SBChat{
     position: flex; 
     justify-content: center;
     align-items: center;
@@ -459,7 +459,20 @@ body{
     height: 35px;
     border: 2px solid #6A6A6A;
     background-color: #f7f0c1;
-}.ContenedorLogo img{
+
+}.SBChat .UlMensajes .liMensaje{
+    background-color: #099617;
+}.SBChat .UlMensajes .LiMensajeClient{
+    background-color: purple;
+}.SBChat .UlMensajes{
+    max-width: 800px;
+    margin: 10px auto;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+} */
+.ContenedorLogo img{
     width: 400px;
     height: 400px;
 }.StoryTime{

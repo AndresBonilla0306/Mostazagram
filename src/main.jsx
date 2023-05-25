@@ -14,7 +14,7 @@ import Singup from './Pages/Singup'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <>
     <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
@@ -28,5 +28,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/Story' element={<Story/>}/>
         </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
+  </>,
 )
