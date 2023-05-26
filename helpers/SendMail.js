@@ -1,6 +1,7 @@
 import NodeMailer from 'nodemailer'
 
-const enviarEmail = async () => {
+
+const enviarEmail = async (usuario) => {
     
     const config = {
         host : 'smtp.gmail.com',
@@ -13,9 +14,9 @@ const enviarEmail = async () => {
 
     const mensaje = {
         from : 'mostazagram@gmail.com',
-        to : 'juan_p.martinez_g@uao.edu.co',
-        subject : 'Chichon',
-        text : 'Ya podemos enviar correos'
+        to : usuario.email,
+        subject : 'Gracias por registrarte en Mostazagram',
+        text : `Hola ${usuario.user} Bienvenido a Mostazagram aquí encontrarás horas de diversión para tenr con tus amigos`
     }
 
     const transport = NodeMailer.createTransport(config);
@@ -25,4 +26,6 @@ const enviarEmail = async () => {
     console.log(info)
 }
 
-enviarEmail();
+export {enviarEmail}
+
+//enviarEmail();

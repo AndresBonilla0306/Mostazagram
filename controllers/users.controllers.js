@@ -1,18 +1,20 @@
 import { request, response } from "express"
 import { userModel } from "../models/userModel.js"
+import { enviarEmail } from "../helpers/SendMail.js"
 
 const getUser = (request, response) => {
-    // response.json({msg: "Muy buenas a todos guapisimos"})
-    response.send("<h1>Muy buenas a todos guarrisimos</h1>")
+    response.send("Muy buenas a todos guarrisimos")
 }
 const createUser = async (req = request, res = response) => {
     const { name, email, user, pass } = req.body
     try {
-        // console.log(req)
 
         const newUser = new userModel({ name, email, user, pass })
         await newUser.save()
+        await enviarEmail(newUser)
         return res.json({ msg: newUser})
+
+
 
     } catch (error) {
         console.log(error)
