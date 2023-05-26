@@ -33,8 +33,6 @@ app.use(cors());
 app.use("/api/user", user);
 app.use("/api/post", post);
 app.use("/api/comment", comment);
-// app.listen(process.env.PORT, () =>
-//   console.log("Salchipapa " + process.env.PORT)
-// );
+
 
 httpServer.listen(process.env.PORT);
