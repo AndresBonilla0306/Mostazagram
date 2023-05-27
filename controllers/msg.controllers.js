@@ -1,5 +1,5 @@
 import { response, request } from "express";
-import { msgModel } from "../models/msgModel";
+import { msgModel } from "../models/msgModel.js";
 
 const getMsg = (request, response) => {
     response.send("Hooooooola a todos chavales aqui alexby11")

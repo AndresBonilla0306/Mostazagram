@@ -1,5 +1,5 @@
 import { response, request } from "express";
-import { storyModel } from "../models/storyModel";
+import { storyModel } from "../models/storyModel.js";
 
 const getStory = (request, response) => {
     response.send("Hooooooola a todos chavales aqui alexby11")
