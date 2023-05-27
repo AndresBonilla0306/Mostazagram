@@ -4,6 +4,8 @@ import { DBconnection } from "./database/configmongodb.js";
 import user from "./routes/users.routes.js";
 import post from "./routes/post.routes.js";
 import comment from "./routes/comment.routes.js";
+import story from "./routes/story.routes.js"
+import msg from "./routes/msg.routes.js"
 import cors from "cors";
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -33,6 +35,8 @@ app.use(cors());
 app.use("/api/user", user);
 app.use("/api/post", post);
 app.use("/api/comment", comment);
+app.use("/api/story", story);
+app.use("/api/msg", msg);
 
 
 httpServer.listen(process.env.PORT);
