@@ -3,12 +3,15 @@ import Logo from '../assets/assets/img/Logito.png'
 import facebook from '../assets/assets/img/buttons/BOTON_FACEBOOK_Mesa de trabajo 1.png'
 import google from '../assets/assets/img/buttons/BOTON_GOOGLE_Mesa de trabajo 1.png'
 import { useNavigate } from 'react-router-dom';
-
+import { loginUsuario } from '../services/post.services'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
   
-
+  const [user, setUser] = useState('');
+  const [pass, setPassword] = useState('');
   const navigate = useNavigate();
 
   const Register = () => {
@@ -17,61 +20,30 @@ const Login = () => {
 
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-  );
-  const [userData, setUserData] = useState({
-    usuario: "",
-    password: "",
-  });
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
   
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
+  const handleUsernameChange = (event) => {
+    setUser(event.target.value);
   };
-  const handleSubmit = (event) => {
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    var { uname, pass } = document.forms[0];
-
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
-
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-
-      } else {
-        setIsSubmitted(true);
-        navigate('/');
-        
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
+    try {
+      // Restablecer los campos del formulario después del envío
+      const res = await loginUsuario(user, pass)
+      console.log(res)
+      setUser('');
+      setPassword('');
+      
+      console.log('Login exitoso:', res.data);
+      toast.info('Registro exitoso, disfruta')
+      navigate('/');
+    } catch (error) {
+      console.error('Error al login:', error.response.data);
+      toast.error('Error al registrarse: ' + error.response.data.msg);
     
-    console.log("REGISTRADISIMO MI PAPA ")
-    console.log("C VA AL LOGIN")
-  };
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserData((prevUserData) => ({
-      ...prevUserData,
-      [name]: value,
-    }));
+    }
   };
   
   return (
@@ -83,18 +55,20 @@ const Login = () => {
         <h1>Mostazagram</h1>
           <input
             type='text'
-            placeholder="Usuario"
-            // className="half-placeholder"
+            placeholder="User"
+            value={user}
+            onChange={handleUsernameChange}
             name="uname"
           />
-          {renderErrorMessage("uname")}<br/><br/>
+          <br/>
           <input
             type="password"
-            placeholder="Contraseña"
-            // className="half-placeholder"
+            placeholder="Password"
+            value={pass} 
+            onChange={handlePasswordChange}
             name="pass"
           />
-          {renderErrorMessage("pass")}<br/>
+          <br/>
         <button className='ButtonsSN'>
           <img src={facebook}/>
         </button>
@@ -107,6 +81,8 @@ const Login = () => {
         
         <button onClick={Register}>¿No tienes una cuenta?</button>
       </form>
+
+      <ToastContainer />
     </div>
     
   )
