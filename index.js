@@ -1,6 +1,6 @@
 import express from "express";
 import * as dotenv from "dotenv";
-import { DBconnection } from "./database/configmongodb.js";
+import {DBconnection} from "./database/configMongoDB.js"
 import user from "./routes/users.routes.js";
 import post from "./routes/post.routes.js";
 import comment from "./routes/comment.routes.js";
