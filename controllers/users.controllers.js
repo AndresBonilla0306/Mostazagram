@@ -65,4 +65,43 @@ const revalidarToken = async (req, res = express.request) => {
     ok: true,
   });
 };
-export { getUser, createUser, loginUsuario, revalidarToken };
+
+const actualizarPhoto = async (req, res = express.request) => {
+  try {
+    const { id } = req.params;
+    const user = await userModel.findById(id).populate("user", "_id");
+
+    if (!user) {
+      return res.status(404).json({
+        ok: false,
+        task: "No hay users en DB",
+      });
+    }
+
+    if (user.user.id !== req.uid) {
+      return res.status(403).json({
+        ok: false,
+        msg: "No puedes ver esta tarea",
+      });
+    }
+
+    const { urlPhoto } = req.body;
+    const updatedPhoto = await userModel.findByIdAndUpdate(
+      id,
+      { urlPhoto },
+      { new: true }
+    );
+
+    res.json({
+      ok: true,
+      updatedTask: updatedPhoto,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      task: "Internal Error",
+    });
+  }
+};
+export { getUser, createUser, loginUsuario, revalidarToken, actualizarPhoto };

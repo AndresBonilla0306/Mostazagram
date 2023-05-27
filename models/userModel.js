@@ -5,6 +5,7 @@ export const userSchema = Schema({
   email: { type: String, required: true },
   user: { type: String, required: true },
   pass: { type: String, required: true },
+  pass: { type: String, required: false },
 });
 
 const userModel = model("User", userSchema);
