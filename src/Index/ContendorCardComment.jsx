@@ -5,8 +5,6 @@ const ContendorCardComment = ({ fetchComment }) => {
   return (
     <div>
       <CardComment fetchComment={fetchComment} />
-      {/* <button>Editar</button>
-      <button>Borrar</button> */}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 header{
     display: flex;
     background-image: url(../assets/assets/img/Header.png);
-    background-repeat: no-repeat;
+    background-repeat:repeat-x;
     background-attachment: fixed;
     /*background-color: #FFF166;*/
     justify-content: space-between;
@@ -64,7 +64,7 @@ body{
 }
 .MenuV{
     background-image: url(../assets/assets/img/buttons/HoverFondo.png);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     text-align: center;
     position: fixed;
     height: 100vh;
@@ -129,30 +129,40 @@ body{
     background-color: #FDF9D5;
     justify-content: space-between;
     display: flex;
+    flex-direction: column;
     text-align: left;
     width: 60%;
-    height: 100%;
-    max-height: 600px;
-    min-height: 200px;
-    margin-top: 18%;
+    height: auto;
+    margin-top: 17%;
     margin-bottom: -8%;
     margin-right: 20%;
     margin-left: 20%;
     border-radius: 10%;
     border: 5px solid #6A6A6A;
+    /* @media (max-width:720px) {
+
+        
+    } */
 }.FotoPD{
-    width: 75%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    justify-content: center;
+    padding: auto;
 }
 .FotoP{
-    width:100%;
+    width:75%;
     height: auto;
     border-radius: 10%;
+    padding-top: 2%;
 }
 .ButtonsMelos{
     width: 20%;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
+    text-align: right;
     padding: 10px;
     background-color: transparent;
 
@@ -160,33 +170,31 @@ body{
     background-color: transparent;
     padding: 0px;
     width: 50%;
-    height: auto;
+ 
     border:0px;
 }.ButtonsMelos button img{
     width: 100%;
-    height: auto;
+
     transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 }.ButtonsMelos button img:hover{
     width: 90%;
 }.Comentarios{
-    display: block;
     background-color: transparent;
-    height: 600px;
     overflow-y:auto;
-    padding-top: 10px;
-}@media(max-width:600px){
-    .Comentarios{
-        height: 200px;
-    }
+    scrollbar-width: none;
+    min-height: 0px;
+    max-height: 400px;
+}.Comentarios .texto{
+    margin: 6%;
 }
 .Comentarios img {
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }
 .Publicar{
     text-align: center;

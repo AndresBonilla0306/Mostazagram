@@ -16,10 +16,10 @@ const PublicacionCard = ({data}) => {
   
   return (
     <div className='Publication'>
+      
       <div className='FotoPD'>
         <img src={data.photo} className='FotoP'></img>
-      </div>
-      <div className='ButtonsMelos'>
+        <div className='ButtonsMelos'>
         <button>
           <img src={like}/>
         </button><br></br>
@@ -30,8 +30,15 @@ const PublicacionCard = ({data}) => {
           <img src={Share}/>
         </button>
       </div>
+      
+        
+      </div>
       <div className='Comentarios'>
         {showComments && <ContendorCardComment fetchComment={CardComment} />} 
+        <br />
+        {showComments && <ContendorCardComment fetchComment={CardComment} />}
+        <br />
+        {showComments && <ContendorCardComment fetchComment={CardComment} />}
         <br />
         {showComments && <ContendorCardComment fetchComment={CardComment} />}
         <br />

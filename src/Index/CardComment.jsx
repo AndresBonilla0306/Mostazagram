@@ -54,8 +54,7 @@ const CardComment = () => {
   
   
   return (
-    <div>
-      <img src={foto} ></img>
+    <div className='texto'>
       <h5>{getRandomName()}:</h5>
       <p>{comment.substring(0, 50)}</p>
     </div>
