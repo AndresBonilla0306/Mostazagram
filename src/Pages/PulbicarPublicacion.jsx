@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
 import ContenedorCardImagenP from '../Index/ContenedorCardImagenP'
 import Header from '../Componentes/Header'
@@ -7,12 +7,38 @@ import MonaLisa from '../assets/assets/img/Others/MonaLisa.jpg'
 import { subirPost } from '../services/post.services'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { extractUser } from '../helpers/jwt'
+import { getToken } from '../helpers/localStorage'
+import { Ref } from 'react'
+import { subirStory } from '../services/post.services'
 
 export const PulbicarPublicacion = () => {
 
   const [user, setUser] = useState('');
   const [desc, setDesc] = useState('');
   const [post, setPost] = useState('');
+  const [loading, setloading] = useState('')
+  const inputRef = useRef(null)
+  
+  const uploadImage = async (e)=>{
+    const files = inputRef.current.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "images");
+    setloading(true);
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/duimlfme0/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    )
+    const file = await res.json();
+    setPost(file.secure_url)
+    setloading(false)
+    return file.secure_url
+  }
+
   const handleUsernameChange = (event) => {
     setUser(event.target.value);
   };
@@ -20,38 +46,54 @@ export const PulbicarPublicacion = () => {
   const handleDescChange = (event) => {
     setDesc(event.target.value);
   };
-
-  const handlePostChange = (event) => {
-    setPost(event.target.value);
-  };
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    const resCloud = await uploadImage();
     try {
-      const res = await createUser(user, desc, post);
-      setUser('');
-      setDesc('');
-      setPost('');
-      
+      const {uid} = await extractUser(getToken());
+      const res = await subirPost(resCloud, desc, uid);
       toast.info('Update exitoso, disfruta')
-      console.log('Update exitoso:', res.data);
-      
-      navigate('/');
+      // navigate('/')
+      console.log('Registro exitoso:', res.data);;
     } catch (error) {
       console.error('Error al Update:', error.response.data);
-      // toast.error('Error al Update: ' + error.response.data.errors.msg);
+      toast.error('Error al Update: ' + error.response.data.errors.msg);
     }
   };
+
+  const updateStory = async (event) => {
+    event.preventDefault()
+    const resCloud = await uploadImage();
+    try {
+      const {uid} = await extractUser(getToken());
+      const res = await subirStory(resCloud, uid);
+      toast.info('Update exitoso, disfruta')
+      // navigate('/')
+      console.log('Registro exitoso:', res.data);;
+    } catch (error) {
+      console.error('Error al Update:', error.response.data);
+      toast.error('Error al Update: ' + error.response.data.errors.msg);
+    }
+  }
   return (
     <div className='Publicar'>
       <Header/>
       <Hover/>
-      <div className='CPublicar'>
-        <img src={MonaLisa} className='FotoPubli'/><br/>  
-        <button className='BtnPublicar'>Publicar</button>
-      </div>
+      <form className='CPublicar' onSubmit={handleSubmit}>
+        <input type='file' name='file' placeholder='¡Sube tu foto aqui!' ref={inputRef} />
+        {/* <img ref={inputRef} className='FotoPubli'/> */}
+        <br/> 
+        <input type="text" value={desc} onChange={handleDescChange} /> 
+        <button className='BtnPublicar' >Publicar Psot</button>
+      </form>
+      <form className='CPublicar' onSubmit={updateStory}>
+          <button className='BtnPublicar' >Publicar Story</button>
+      </form>
+      
       <ContenedorCardImagenP/>
+      <ToastContainer />
     </div>
+    
   )
 }

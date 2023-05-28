@@ -6,6 +6,7 @@ const instance = axios.create({
 
 const getPosts = async () => {
   const res = await instance.get("/post/post");
+  console.log(res);
   return res.data;
 };
 
@@ -27,12 +28,27 @@ const loginUsuario = async (user, pass) => {
   return res.data;
 };
 
-const subirPost = async (user, desc, photo) => {
+const subirPost = async (photo, desc, user) => {
   const res = await instance.post("/post/create", {
+    photo,
+    desc,
     user,
-    pass,
   });
   return res.data;
 };
 
-export { getPosts, createUser, loginUsuario, subirPost };
+const getStorys = async () => {
+  const res = await instance.get("/story/story");
+  console.log(res);
+  return res.data;
+};
+
+const subirStory = async (photo, user) => {
+  const res = await instance.post("/story/create", {
+    photo,
+    user,
+  });
+  return res.data;
+};
+
+export { getPosts, createUser, loginUsuario, subirPost, subirStory, getStorys };

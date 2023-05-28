@@ -1,5 +1,5 @@
 import React from 'react'
-import ContenedorCardStories from '../Index/ContenedorCardStories'
+import ContenedorCardStories from '../Index/ContenedorCardStories.jsx'
 
 const Story = () => {
   return (
