@@ -11,11 +11,10 @@ import { validarJWT } from "../middlewares/validar-token.js";
 
 const router = express.Router();
 
-router.post("/", loginUsuario);
+router.post("/login", loginUsuario);
 
 router.post("/new", validateUser, createUser);
 
 router.get("/renew", validarJWT, revalidarToken);
-
 
 export default router;
