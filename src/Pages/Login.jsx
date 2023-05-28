@@ -32,12 +32,15 @@ const Login = () => {
     try {
       // Restablecer los campos del formulario después del envío
       const res = await loginUsuario(user, pass)
-      console.log(res)
+      console.log(res.token)
       setUser('');
       setPassword('');
       
       console.log('Login exitoso:', res.data);
       toast.info('Registro exitoso, disfruta')
+      localStorage.setItem( "token", JSON.stringify(res.token) )
+      
+      
       navigate('/');
     } catch (error) {
       console.error('Error al login:', error.response.data);

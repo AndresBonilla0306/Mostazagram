@@ -27,10 +27,14 @@ const loginUsuario = async (user, pass) => {
   return res.data;
 };
 
-const subirPost = async (user, desc, photo) => {
+const subirPost = async (photo, desc, user) => {
+  console.log(photo);
+  console.log(desc);
+  console.log(user);
   const res = await instance.post("/post/create", {
+    photo,
+    desc,
     user,
-    pass,
   });
   return res.data;
 };
