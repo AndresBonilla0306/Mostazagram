@@ -20,10 +20,7 @@ export const PulbicarPublicacion = () => {
   const inputRef = useRef(null)
   
   const uploadImage = async (e)=>{
-    console.log(inputRef.current.files)
     const files = inputRef.current.files;
-    // const files = e.target.files;
-    console.log(files)
     const data = new FormData();
     data.append("file", files[0]);
     data.append("upload_preset", "images");
@@ -33,7 +30,6 @@ export const PulbicarPublicacion = () => {
       {
         method: "POST",
         body: data,
-        // tranqui <3
       }
     )
     const file = await res.json();
@@ -58,7 +54,6 @@ export const PulbicarPublicacion = () => {
     const resCloud = await uploadImage();
     try {
       const {uid} = await extractUser(getToken());
-      console.log(uid)
       console.log(resCloud)
       const res = await subirPost(resCloud, desc, uid);
       toast.info('Update exitoso, disfruta')
