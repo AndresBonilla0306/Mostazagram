@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { extractUser } from '../helpers/jwt'
 import { getToken } from '../helpers/localStorage'
 import { Ref } from 'react'
+import { subirStory } from '../services/post.services'
 
 export const PulbicarPublicacion = () => {
 
@@ -33,11 +34,8 @@ export const PulbicarPublicacion = () => {
       }
     )
     const file = await res.json();
-    
     setPost(file.secure_url)
-    console.log(file.secure_url);
     setloading(false)
-
     return file.secure_url
   }
 
@@ -54,7 +52,6 @@ export const PulbicarPublicacion = () => {
     const resCloud = await uploadImage();
     try {
       const {uid} = await extractUser(getToken());
-      console.log(resCloud)
       const res = await subirPost(resCloud, desc, uid);
       toast.info('Update exitoso, disfruta')
       // navigate('/')
@@ -64,20 +61,38 @@ export const PulbicarPublicacion = () => {
       toast.error('Error al Update: ' + error.response.data.errors.msg);
     }
   };
+
+  const updateStory = async (event) => {
+    event.preventDefault()
+    const resCloud = await uploadImage();
+    try {
+      const {uid} = await extractUser(getToken());
+      const res = await subirStory(resCloud, uid);
+      toast.info('Update exitoso, disfruta')
+      // navigate('/')
+      console.log('Registro exitoso:', res.data);;
+    } catch (error) {
+      console.error('Error al Update:', error.response.data);
+      toast.error('Error al Update: ' + error.response.data.errors.msg);
+    }
+  }
   return (
     <div className='Publicar'>
       <Header/>
       <Hover/>
       <form className='CPublicar' onSubmit={handleSubmit}>
         <input type='file' name='file' placeholder='¡Sube tu foto aqui!' ref={inputRef} />
-        {/* <img src={MonaLisa} className='FotoPubli'/> */}
+        {/* <img ref={inputRef} className='FotoPubli'/> */}
         <br/> 
         <input type="text" value={desc} onChange={handleDescChange} /> 
-        <button className='BtnPublicar' >Publicar</button>
+        <button className='BtnPublicar' >Publicar Psot</button>
+      </form>
+      <form className='CPublicar' onSubmit={updateStory}>
+          <button className='BtnPublicar' >Publicar Story</button>
+      </form>
       
       <ContenedorCardImagenP/>
       <ToastContainer />
-      </form>
     </div>
     
   )

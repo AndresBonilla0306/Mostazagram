@@ -4,7 +4,7 @@ import Yo from '../assets/assets/img/Yo2.jpeg'
 import { useNavigate } from 'react-router-dom';
 import X from '../assets/assets/img/buttons/X.png'
 
-const CardStories = () => {
+const CardStories = ({data}) => {
 
   const navegar =useNavigate();
 
@@ -12,15 +12,6 @@ const CardStories = () => {
     navegar('/')
   }
 
-  const [story, setStory] = useState('');
-  useEffect(() => {
-    async function obtenerPost() {
-      const randomNum = Math.floor(Math.random() * 1000);
-      const respuesta = await axios.get(`https://picsum.photos/200/200?random=${randomNum}`);
-      setStory(respuesta.config.url);
-    }
-    obtenerPost();
-  }, []);
   return (
     <div className='ContainerStory'>
       <div>
@@ -30,7 +21,7 @@ const CardStories = () => {
           <img src={X}/>
         </button>
       </div>
-      <img src={story} className='FotoP'></img>
+      <img src={data.photo} className='FotoP'></img>
     </div>
   )
 }
