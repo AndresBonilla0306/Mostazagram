@@ -36,6 +36,18 @@ const loginUsuario = async (user, pass) => {
   return res.data;
 };
 
+const editUser = async (_id, name, descript, user, email, pass) => {
+  const res = await instance.post("/user/edit", {
+    _id,
+    name,
+    descript,
+    user,
+    email,
+    pass,
+  });
+  return res.data;
+};
+
 const subirPost = async (photo, desc, user) => {
   const res = await instance.post("/post/create", {
     photo,
@@ -62,7 +74,6 @@ const getCommetns = async (_id) => {
   const res = await instance.get("/comment/comment", {
     _id,
   });
-  // console.log(res);
   return res.data;
 };
 
@@ -72,7 +83,6 @@ const createComments = async (comment, user, post) => {
     user,
     post,
   });
-  // console.log(res);
   return res.data;
 };
 
@@ -86,4 +96,5 @@ export {
   getCommetns,
   createComments,
   getPostsId,
+  editUser,
 };

@@ -2,10 +2,41 @@ import React from 'react'
 import Header2 from '../Componentes/Header2'
 import Yo2 from '../assets/assets/img/Yo2.jpeg'
 import { useNavigate } from 'react-router-dom'
+import { editUser } from '../services/post.services'
+import { extractUser } from '../helpers/jwt'
+import { getToken } from '../helpers/localStorage'
+import { Ref } from 'react'
 
 const EditPorfile = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [user, setUser] = useState('');
+  const [pass, setpass] = useState('');
+  const [desc, setDesc] = useState('');
 
+  const [photo, setPost] = useState('');
+  const [loading, setloading] = useState('')
+  const inputRef = useRef(null)
+  
+  const uploadImage = async (e)=>{
+    const files = inputRef.current.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "images");
+    setloading(true);
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/duimlfme0/profile/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    )
+    const file = await res.json();
+    setPost(file.secure_url)
+    setloading(false)
+    return file.secure_url
+  }
   const handleClick = () => {
     navigate('/Profile');
   };
