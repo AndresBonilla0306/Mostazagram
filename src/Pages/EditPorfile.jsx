@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Header2 from '../Componentes/Header2'
-import Yo2 from '../assets/assets/img/Yo2.jpeg'
 import { useNavigate } from 'react-router-dom'
 import { editUser} from '../services/post.services'
 import { extractUser } from '../helpers/jwt'
 import { getToken } from '../helpers/localStorage'
 import { ToastContainer, toast } from 'react-toastify';
+import { getProfileId } from '../services/post.services'
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -47,8 +47,16 @@ const EditPorfile = () => {
   const handleUserChange = (event) => {
     setUser(event.target.value);
   };
-  
-  
+  const [photo2, setPhoto2] = useState('')
+  const getDataDB = async ()=>{
+    const {uid} = await extractUser(getToken());
+    const res = await getProfileId(uid)
+    console.log(res)
+    setPhoto2(res.photo)
+  }
+  useEffect(()=>{
+    getDataDB()
+  },[])
   const handleSubmit = async (event) => {
     event.preventDefault();
     const resCloud = await uploadImage();
@@ -79,7 +87,7 @@ const EditPorfile = () => {
           <button onClick={handleClick}>Cancelar</button>
         </div>
         <div className='EdInfo'>
-          <img src={Yo2} className='FoticoFoto'/><br/>
+          <img src={photo2} className='FoticoFoto'/><br/>
           <a>Nombre</a><br/>
           <input type='text' onChange={handleNameChange}></input><br/>
           <a>Descripción</a><br/>
@@ -87,14 +95,14 @@ const EditPorfile = () => {
           <h1>Configuración de la cuenta</h1>
           <a>Usuario</a><br/>
           <input type='text' onChange={handleUserChange}></input><br/>
+          <form className='' onSubmit={handleSubmit}>
+            <input type='file' ref={inputRef} className='FileP' /><br/>
+            <button className='BtnPublicar'>Guardar</button>
+          </form>
         </div>
-        <div className='EdBtn2'>
+        {/* <div className='EdBtn2'>
           <button onClick={handleClick}>Guardar</button>
-        </div>
-        <form className='CPublicar' onSubmit={handleSubmit}>
-        <input type='file' ref={inputRef} className='FileP' />
-          <button className='BtnPublicar' >Publicar Story</button>
-      </form>
+        </div> */}
       <ToastContainer />
       </div>
     </div>

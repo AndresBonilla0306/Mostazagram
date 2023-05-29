@@ -9,7 +9,7 @@ const CardStories = ({data}) => {
   const navegar =useNavigate();
 
   const handleClick = () =>{
-    navegar('/')
+    navegar('/Login')
   }
 
   return (

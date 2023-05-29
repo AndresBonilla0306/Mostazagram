@@ -6,7 +6,7 @@ const ComponenteItemLogOut = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/Login');
+    navigate('/');
   };
   return (
     <div>

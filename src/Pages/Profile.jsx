@@ -52,12 +52,12 @@ const Profile = () => {
       <Hover/>
       <div className='Profile'>
       <div className='InfoProfile'>
-          <a className='Numbers'>25 </a>
-          <a className='Text'>Seguidores</a><br/>
-          <a className='Numbers'>60000000 </a>
-          <a className='Text'>Seguidores</a><br/>
-          <a className='Numbers'>69 </a>
-          <a className='Text'>Publicaciones</a>
+          <a className='PInfo'>25 </a>
+          <a className='PInfo'>Seguidores</a><br/>
+          <a className='PInfo'>60000000 </a>
+          <a className='PInfo'>Seguidores</a><br/>
+          <a className='PInfo'>69 </a>
+          <a className='PInfo'>Publicaciones</a>
         </div> 
         <div className='Fotico'>
           <img src={photo} className='FoticoFoto'/><br/>
