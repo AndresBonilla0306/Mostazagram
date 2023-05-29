@@ -6,7 +6,6 @@ import ContenedorCardItemPerfil from '../Index/ContenedorCardItemPerfil'
 import InChatContainer from '../Index/InChatContainer'
 import { io } from 'socket.io-client'
 import { useEffect } from 'react'
-//import { LiMensaje, UlMensajes, LiMensajeClient} from '../Componentes/UImessage'
 
 const socket = io('http://localhost:4000');
 
@@ -38,6 +37,7 @@ const Messages = () => {
   }
 
   const socketID = socket.id
+
   return (
     <div>
       <Header />
@@ -49,13 +49,12 @@ const Messages = () => {
         <ul className='UlMensajes'>
           {mensaje.map(Mensajero=>{
             return  socketID === Mensajero.id ? 
-              (<li className='liMensaje'>{Mensajero.usuario}: {Mensajero.mensajito}</li>) 
+              (<li className='LiMensaje'>{Mensajero.usuario}: {Mensajero.mensajito}</li>) 
               : (<li className='LiMensajeClient'>{Mensajero.usuario}: {Mensajero.mensajito}</li>)
-            
           })}
         </ul>
-        <input type='Text' onChange={e=> setNewMensaje(e.target.value)}></input>
-        <button onClick={enviarMensaje}>SEND</button>
+        <input type='Text' className='BarChat' onChange={e=> setNewMensaje(e.target.value)}></input>
+        <button onClick={enviarMensaje} className='SendBtn'>SEND</button>
       </div>
     </div>
   )
