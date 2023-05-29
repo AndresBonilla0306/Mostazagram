@@ -179,13 +179,26 @@ body{
 }.ButtonsMelos button img:hover{
     width: 90%;
 }.Comentarios{
-    background-color: transparent;
     overflow-y:auto;
     scrollbar-width: none;
     min-height: 0px;
     max-height: 400px;
 }.Comentarios .texto{
     margin: 6%;
+    background-color: #fcf394;
+    border-radius: 5%;
+    border: 2px solid rgb(129, 129, 129);
+    padding: 1%;
+}@font-face{
+    font-family: InterMilan;
+    src: url("../assets/fonts/Inter-BlackItalic.otf")
+}
+.CommentUser{
+    background-color: #fcf394;
+    font-size: 20px;
+    font-family: InterMilan, sans-serif;
+}.CommentUser:hover{
+    background-color: #f7e955;
 }
 .Comentarios img {
     top: 0;

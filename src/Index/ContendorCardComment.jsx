@@ -19,26 +19,22 @@ const ContendorCardComment = ({data: datas}) => {
     try {
       const {uid} = await extractUser(getToken());
       const idPost = datas._id
-      // console.log(idPost)
-      // console.log(uid)
-      // console.log(cComment)
       const res = await createComments( cComment, uid, idPost);
-      // toast.info('Update exitoso, disfruta')
-      // navigate('/')
       console.log('Registro exitoso:', res.data);
     } catch (error) {
       console.error('Error al Update:', error.response.data);
-      // toast.error('Error al Update: ' + error.response.data.errors.msg);
     }
   };
-  
+  const handleReload = () => {
+    window.location.reload();
+  };
   return (
     <div>
       {/* {datas.comment?.map((comment)=>{return(<CardComment  data={datas} key={comment._id}/>)})} */}
       <CardComment data={datas}/>
       <form className='ContenedorCommentario' onSubmit={handleSubmit}>
         <input type="text" className='BarComment' value={cComment} onChange={handleCommentChange}/> 
-        <button className='BarSend'>Push</button>
+        <button className='BarSend' onClick={handleReload}>Send</button>
       </form> 
     </div>
     
