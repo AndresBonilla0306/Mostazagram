@@ -104,4 +104,5 @@ const actualizarPhoto = async (req, res = express.request) => {
     });
   }
 };
+
 export { getUser, createUser, loginUsuario, revalidarToken, actualizarPhoto };
