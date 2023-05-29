@@ -19,22 +19,21 @@ const ContendorCardComment = ({data: datas}) => {
     try {
       const {uid} = await extractUser(getToken());
       const idPost = datas._id
-      
       const res = await createComments( cComment, uid, idPost);
-      
       console.log('Registro exitoso:', res.data);
     } catch (error) {
       console.error('Error al Update:', error.response.data);
     }
   };
-  
-  
+  const handleReload = () => {
+    window.location.reload();
+  };
   return (
     <div>
       <CardComment data={datas}/>
       <form className='ContenedorCommentario' onSubmit={handleSubmit}>
         <input type="text" className='BarComment' value={cComment} onChange={handleCommentChange}/> 
-        <button className='BarSend'>Push</button>
+        <button className='BarSend' onClick={handleReload}>Send</button>
       </form> 
     </div>
     

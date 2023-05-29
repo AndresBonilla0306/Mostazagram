@@ -27,8 +27,8 @@ const CardComment = ({ data }) => {
     <div className='texto'>
       {data.comment?.map((com) => (
         <React.Fragment key={com._id}>
-          <h1>{com.user.user}:</h1>
-          <h3>{com.comment}</h3>
+          <h1 className='CommentUser'>{com.user.user}: {com.comment}</h1>
+          {/* <h3 className='CommentComment'>{com.comment}</h3> */}
         </React.Fragment>
       ))}
     </div>
