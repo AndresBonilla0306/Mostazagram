@@ -19,12 +19,6 @@ const Profile = () => {
   const [desc, setDesc] = useState('');
   const [photo, setPhoto] = useState('');
 
-  const info = async () =>{
-    const {uid} = await extractUser(getToken());
-    console.log(uid)
-    const data = await getProfileId(uid)
-    console.log(data)
-  }
 
   const handleClick = () => {
     navigate('/Edit');
@@ -32,8 +26,10 @@ const Profile = () => {
   
   const getDataDB = async ()=>{
     const {uid} = await extractUser(getToken());
+    console.log(uid)
     const res = await getProfileId(uid)
     console.log(res)
+    // console.log(res)
     setName(res.name)
     setEmail(res.email)
     setUser(res.user)

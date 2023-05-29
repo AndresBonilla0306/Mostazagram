@@ -19,7 +19,8 @@ const getPostsId = async (id) => {
 };
 
 const getProfileId = async (_id) => {
-  const res = await instance.get("/user/profile", {
+  console.log(_id);
+  const res = await instance.post("/user/profile", {
     _id,
   });
   return res.data;
