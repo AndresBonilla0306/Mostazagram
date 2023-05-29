@@ -22,7 +22,7 @@ const CardComment = ({ data }) => {
   const [comment, setComment] = useState([]);
   const [user, setUser] = useState('');
   const [post, setPost] = useState('');
-
+  console.log(data)
   return (
     <div className='texto'>
       {data.comment?.map((com) => (
