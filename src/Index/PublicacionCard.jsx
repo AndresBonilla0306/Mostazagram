@@ -4,11 +4,19 @@ import like from '../assets/assets/img/buttons/Like.png'
 import comment from '../assets/assets/img/buttons/Comment.png'
 import Share from '../assets/assets/img/buttons/Share.png'
 import ContendorCardComment from './ContendorCardComment';
+import { getProfileId } from '../services/post.services';
 import CardComment from './CardComment';
 
 
 const PublicacionCard = ({data}) => {
   
+  // const [user, setUser] = useState('')
+
+  // useEffect(()=>{
+  //   console.log(data.user)
+  //   setUser(getProfileId(data.user))
+  //   console.log(user.name)
+  // },[])
   const [showComments, setShowComments] = useState(false);
   // console.log(data.comment)
   const toggleComments = () => {
@@ -17,7 +25,8 @@ const PublicacionCard = ({data}) => {
   
   return (
     <div className='Publication'>
-      
+      {/* <h1 className='User'>Holi</h1> */}
+      <h1 className='Desc'>{data.desc}</h1>
       <div className='FotoPD'>
         <img src={data.photo} className='FotoP'></img>
         <div className='ButtonsMelos'>
