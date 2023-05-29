@@ -203,12 +203,41 @@ body{
 }.CPublicar{
     margin: 20%;
     margin-top: 15%;
-    margin-bottom: 1%;
+    margin-bottom: -10%;
     padding: 30px;
     align-items: center;
     background-color:#FDF9D5;
     border: 2px solid #6A6A6A;
     border-radius: 20px;
+}
+.FileP{
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  padding: 10px;
+  margin: 10px;
+}.BarP{
+    padding: 5px;
+    font-size: 15px;
+    width: 250px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #fff6aa;
+
+    border:0px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    transition: width 0.75s ease-in-out, height 0.75s ease-in-out;
+}.BarP:hover{
+    width: 255px;
+    height: 25px;
 }
 .FotoPubli{
     width: 300px;

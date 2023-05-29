@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react'
-import ContenedorCardImagenP from '../Index/ContenedorCardImagenP'
 import Header from '../Componentes/Header'
 import Hover from '../Componentes/Hover'
 import MonaLisa from '../assets/assets/img/Others/MonaLisa.jpg'
@@ -81,17 +80,15 @@ export const PulbicarPublicacion = () => {
       <Header/>
       <Hover/>
       <form className='CPublicar' onSubmit={handleSubmit}>
-        <input type='file' name='file' placeholder='¡Sube tu foto aqui!' ref={inputRef} />
-        {/* <img ref={inputRef} className='FotoPubli'/> */}
+        <input type='file' ref={inputRef} className='FileP' />
         <br/> 
-        <input type="text" value={desc} onChange={handleDescChange} /> 
-        <button className='BtnPublicar' >Publicar Psot</button>
+        <input type="text" value={desc} onChange={handleDescChange} className='BarP' placeholder='Descripción'/> <br/>
+        <button className='BtnPublicar' >Publicar Post</button>
       </form>
       <form className='CPublicar' onSubmit={updateStory}>
           <button className='BtnPublicar' >Publicar Story</button>
       </form>
       
-      <ContenedorCardImagenP/>
       <ToastContainer />
     </div>
     
