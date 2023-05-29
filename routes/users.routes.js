@@ -12,7 +12,7 @@ import { validarJWT } from "../middlewares/validar-token.js";
 
 const router = express.Router();
 
-router.get("/profile", getUser);
+router.post("/profile", getUser);
 
 router.post("/login", loginUsuario);
 

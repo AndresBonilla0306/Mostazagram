@@ -7,10 +7,10 @@ import { postModel } from "../models/postModel.js";
 
 const getUser = async (request, response) => {
   try {
-    const { id } = request;
-    console.log(id);
+    const { _id } = request.body;
+    // console.log(id);
     const data = await userModel
-      .findOne({ id })
+      .findOne({ _id: _id })
       .populate([{ path: "post" }])
       .exec();
     // console.log(data);
