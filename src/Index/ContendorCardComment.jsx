@@ -19,6 +19,7 @@ const ContendorCardComment = ({data: datas}) => {
     try {
       const {uid} = await extractUser(getToken());
       const idPost = datas._id
+      console.log(idPost)
       const res = await createComments( cComment, uid, idPost);
       console.log('Registro exitoso:', res.data);
     } catch (error) {
