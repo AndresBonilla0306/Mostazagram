@@ -1,5 +1,6 @@
 import { request, response } from "express";
 import { postModel } from "../models/postModel.js";
+import { userModel } from "../models/userModel.js";
 
 const getPost = async (req, res) => {
   try {
@@ -14,30 +15,24 @@ const getPost = async (req, res) => {
   }
 };
 
-const getPostID = async (req, res) => {
-  try {
-    const postId = req.params.id; // Obtén el ID del post deseado desde los parámetros de la solicitud
-
-    const post = await postModel
-      .findById(postId) // Utiliza el método findById para buscar el post por su ID
-      .populate([{ path: "comment", populate: "user" }])
-      .exec();
-
-    if (!post) {
-      return res.status(404).json({ msg: "Post no encontrado" });
-    }
-
-    res.status(200).json(post);
-  } catch (error) {
-    console.log(error);
-    res.status(502).json({ msg: "Pero madre mía Willy" });
-  }
-};
-
 const createPost = async (req = request, res = response) => {
-  const { photo, desc, user } = req.body;
+  const { rate, photo, desc, user } = req.body;
   try {
+    const existeUser = await userModel.findById(user);
+    if (!existeUser) {
+      return res
+        .status(404)
+        .json({ error: `El user con id ${user} no existe pa` });
+    }
     const newPost = new postModel({ photo, desc, user });
+    if (!existeUser.rate) {
+      existeUser.rate = rate;
+    } else {
+      const newRate = (existeUser.rate + rate) / 2;
+      existeUser.rate = newRate.toFixed(2);
+    }
+    existeUser.post.push(newPost);
+    await existeUser.save();
     await newPost.save();
     return res.json({ msg: newPost });
   } catch (error) {
@@ -46,4 +41,4 @@ const createPost = async (req = request, res = response) => {
   }
 };
 
-export { getPost, createPost, getPostID };
+export { getPost, createPost };
