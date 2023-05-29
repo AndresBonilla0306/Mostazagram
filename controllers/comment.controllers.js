@@ -5,6 +5,7 @@ import { postModel } from "../models/postModel.js";
 const getComment = async (request, response) => {
   try {
     const { _id } = request.body;
+    // console.log(_id);
     const comments = await commentModel.find({ postId: _id });
     response.send(comments);
   } catch (error) {
