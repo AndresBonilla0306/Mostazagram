@@ -1,14 +1,11 @@
 import React from 'react'
 import CardImagenP from './CardImagenP'
 
-const ContenedorCardImagenP = () => {
-  
+const ContenedorCardImagenP = ({data}) => {
+  console.log(data)
   return (
     <div className='ContainerAgregadas'>
-      <CardImagenP/>
-      <CardImagenP/>  
-      <CardImagenP/>  
-      <CardImagenP/>
+      {data?.map((posts)=>{return <CardImagenP data={posts}/>})}
     </div>
   )
 }

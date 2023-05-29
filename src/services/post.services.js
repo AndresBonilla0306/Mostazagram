@@ -18,6 +18,13 @@ const getPostsId = async (id) => {
   return res.data;
 };
 
+const getProfileId = async (_id) => {
+  const res = await instance.get("/user/profile", {
+    _id,
+  });
+  return res.data;
+};
+
 const createUser = async (name, email, user, pass) => {
   const res = await instance.post("/user/new", {
     name,
@@ -36,14 +43,13 @@ const loginUsuario = async (user, pass) => {
   return res.data;
 };
 
-const editUser = async (_id, name, descript, user, email, pass) => {
+const editUser = async (_id, name, descript, user, photo) => {
   const res = await instance.post("/user/edit", {
     _id,
     name,
     descript,
     user,
-    email,
-    pass,
+    photo,
   });
   return res.data;
 };
@@ -97,4 +103,5 @@ export {
   createComments,
   getPostsId,
   editUser,
+  getProfileId,
 };

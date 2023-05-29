@@ -1,42 +1,73 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import Header2 from '../Componentes/Header2'
 import Yo2 from '../assets/assets/img/Yo2.jpeg'
 import { useNavigate } from 'react-router-dom'
-import { editUser } from '../services/post.services'
+import { editUser} from '../services/post.services'
 import { extractUser } from '../helpers/jwt'
 import { getToken } from '../helpers/localStorage'
-import { Ref } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const EditPorfile = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [user, setUser] = useState('');
-  const [pass, setpass] = useState('');
   const [desc, setDesc] = useState('');
-
-  const [photo, setPost] = useState('');
+  const [photo, setPhoto] = useState('');
   const [loading, setloading] = useState('')
   const inputRef = useRef(null)
   
   const uploadImage = async (e)=>{
     const files = inputRef.current.files;
+    console.log(files)
     const data = new FormData();
     data.append("file", files[0]);
-    data.append("upload_preset", "images");
+    data.append("upload_preset", "profile");
     setloading(true);
     const res = await fetch(
-      "https://api.cloudinary.com/v1_1/duimlfme0/profile/upload",
+      "https://api.cloudinary.com/v1_1/duimlfme0/image/upload",
       {
         method: "POST",
         body: data,
       }
     )
     const file = await res.json();
-    setPost(file.secure_url)
+    setPhoto(file.secure_url)
     setloading(false)
     return file.secure_url
   }
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleDescChange = (event) => {
+    setDesc(event.target.value);
+  };
+  const handleUserChange = (event) => {
+    setUser(event.target.value);
+  };
+  
+  
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const resCloud = await uploadImage();
+    try {
+      const {uid} = await extractUser(getToken());
+      console.log(uid)
+      console.log(name)
+      console.log(desc)
+      console.log(user)
+      console.log(resCloud)
+      const res = await editUser(uid, name, desc, user, resCloud);
+      toast.info('Update exitoso')
+      // navigate('/')
+      console.log('Registro exitoso:', res.data);
+    } catch (error) {
+      console.error('Error al Update:', error.response.data);
+      toast.error('Error al Update: ' + error.response.data.errors.msg);
+    }
+  };
   const handleClick = () => {
     navigate('/Profile');
   };
@@ -50,20 +81,21 @@ const EditPorfile = () => {
         <div className='EdInfo'>
           <img src={Yo2} className='FoticoFoto'/><br/>
           <a>Nombre</a><br/>
-          <input type='text'></input><br/>
+          <input type='text' onChange={handleNameChange}></input><br/>
           <a>Descripción</a><br/>
-          <input type='text'></input><br/>
+          <input type='text' onChange={handleDescChange}></input><br/>
           <h1>Configuración de la cuenta</h1>
           <a>Usuario</a><br/>
-          <input type='text'></input><br/>
-          <a>Correo</a><br/>
-          <input type='text'></input><br/>
-          <a>Contraseña</a><br/>
-          <input type='text'></input><br/>
+          <input type='text' onChange={handleUserChange}></input><br/>
         </div>
         <div className='EdBtn2'>
           <button onClick={handleClick}>Guardar</button>
         </div>
+        <form className='CPublicar' onSubmit={handleSubmit}>
+        <input type='file' ref={inputRef} className='FileP' />
+          <button className='BtnPublicar' >Publicar Story</button>
+      </form>
+      <ToastContainer />
       </div>
     </div>
   )

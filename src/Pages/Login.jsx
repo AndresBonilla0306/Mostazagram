@@ -41,7 +41,7 @@ const Login = () => {
       localStorage.setItem( "token", JSON.stringify(res.token) )
       
       
-      navigate('/');
+      navigate('/Login');
     } catch (error) {
       console.error('Error al login:', error.response.data);
       toast.error('Error al registrarse: ' + error.response.data.msg);

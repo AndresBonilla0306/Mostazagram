@@ -4,13 +4,48 @@ import Hover from '../Componentes/Hover'
 import Yo2 from '../assets/assets/img/Yo2.jpeg'
 import ContenedorCardImagenP from '../Index/ContenedorCardImagenP'
 import { useNavigate } from 'react-router-dom'
+import { getProfileId } from '../services/post.services'
+import { useEffect, useState } from 'react'
+import { extractUser } from '../helpers/jwt'
+import { getToken } from '../helpers/localStorage'
 
 const Profile = () => {
   const navigate = useNavigate();
+  const [posts, setPosts] = useState([])
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [user, setUser] = useState('');
+  const [pass, setpass] = useState('');
+  const [desc, setDesc] = useState('');
+  const [photo, setPhoto] = useState('');
+
+  const info = async () =>{
+    const {uid} = await extractUser(getToken());
+    console.log(uid)
+    const data = await getProfileId(uid)
+    console.log(data)
+  }
 
   const handleClick = () => {
     navigate('/Edit');
   };
+  
+  const getDataDB = async ()=>{
+    const {uid} = await extractUser(getToken());
+    const res = await getProfileId(uid)
+    console.log(res)
+    setName(res.name)
+    setEmail(res.email)
+    setUser(res.user)
+    setDesc(res.desc)
+    setPhoto(res.photo)
+    setPosts(res.post)
+    // console.log(posts)
+    // setPosts(res)
+  }
+  useEffect(()=>{
+    getDataDB()
+  },[])
   return (
     <div>
       <Header2/>
@@ -25,17 +60,17 @@ const Profile = () => {
           <a className='Text'>Publicaciones</a>
         </div> 
         <div className='Fotico'>
-          <img src={Yo2} className='FoticoFoto'/><br/>
-          <a>Roncancio Laureles</a><br/>
-          <a>@Chichonsito13</a><br/>
-          <a>Riyadh, Saudi Arabi</a>
+          <img src={photo} className='FoticoFoto'/><br/>
+          <a>{name}</a><br/>
+          <a>@{user}</a><br/>
+          <a>{desc}</a>
         </div>
         <div className='BtnPerfil'>
           <button onClick={handleClick}>Editar Perfil</button>
         </div>
       </div>
       <div className='More'>
-        <ContenedorCardImagenP/>
+        <ContenedorCardImagenP data={posts}/>
       </div>
     </div>
   )

@@ -7,7 +7,7 @@ const ComponentItemHome = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/');
+    navigate('/Login');
   };
 
   return (
