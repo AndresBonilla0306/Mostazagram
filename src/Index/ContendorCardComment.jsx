@@ -36,9 +36,9 @@ const ContendorCardComment = ({data: datas}) => {
     <div>
       {/* {datas.comment?.map((comment)=>{return(<CardComment  data={datas} key={comment._id}/>)})} */}
       <CardComment data={datas}/>
-      <form className='CPublicar' onSubmit={handleSubmit}>
-        <input type="text" value={cComment} onChange={handleCommentChange}/> 
-        <button className='' >Push</button>
+      <form className='ContenedorCommentario' onSubmit={handleSubmit}>
+        <input type="text" className='BarComment' value={cComment} onChange={handleCommentChange}/> 
+        <button className='BarSend'>Push</button>
       </form> 
     </div>
     
