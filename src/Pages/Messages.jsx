@@ -7,7 +7,7 @@ import InChatContainer from '../Index/InChatContainer'
 import { io } from 'socket.io-client'
 import { useEffect } from 'react'
 
-const socket = io('http://localhost:4000');
+const socket = io('https://mostazagram-production-1a50.up.railway.app/');
 
 const Messages = () => {
   const [isConnected, setIsConnected] = useState(false);

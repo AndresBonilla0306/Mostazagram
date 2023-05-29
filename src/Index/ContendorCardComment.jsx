@@ -22,6 +22,7 @@ const ContendorCardComment = ({data: datas}) => {
       console.log(idPost)
       const res = await createComments( cComment, uid, idPost);
       console.log('Registro exitoso:', res.data);
+      handleReload();
     } catch (error) {
       console.error('Error al Update:', error.response.data);
     }
@@ -34,7 +35,7 @@ const ContendorCardComment = ({data: datas}) => {
       <CardComment data={datas}/>
       <form className='ContenedorCommentario' onSubmit={handleSubmit}>
         <input type="text" className='BarComment' value={cComment} onChange={handleCommentChange}/> 
-        <button className='BarSend' onClick={handleReload}>Send</button>
+        <button className='BarSend'>Send</button>
       </form> 
     </div>
     
