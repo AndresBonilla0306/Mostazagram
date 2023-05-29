@@ -55,7 +55,7 @@ export const PulbicarPublicacion = () => {
       const res = await subirPost(resCloud, desc, uid);
       toast.info('Update exitoso, disfruta')
       // navigate('/')
-      console.log('Registro exitoso:', res.data);;
+      console.log('Registro exitoso:', res.data);
     } catch (error) {
       console.error('Error al Update:', error.response.data);
       toast.error('Error al Update: ' + error.response.data.errors.msg);

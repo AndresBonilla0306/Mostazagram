@@ -15,7 +15,7 @@ const ContenedorPublicacionCard = () => {
   },[])
   return (
     <div>
-        {posts?.map((post)=>{return(<PublicacionCard data={post} key={post._id} width="800" height="800"/>)})}
+        {posts?.map((post)=>{return(<PublicacionCard data={post} key={post._id} />)})}
     </div>
   )
 }

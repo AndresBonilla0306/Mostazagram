@@ -1,64 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import React, { useState, useEffect } from 'react';
 
-const CardComment = () => {
-  const [comment, setComment] = useState('');
-  const [foto, setFoto] = useState('');
-  const [chats, setChats] = useState([]);
-  
-  useEffect(() => {
-    async function fetchComment() {
-      const response = await axios.get('https://api.breakingbadquotes.xyz/v1/quotes');
-      const comment = response.data[0].quote;
-      setComment(comment);
-    }
-    fetchComment();
-    async function obtenerPost() {
-      const randomPage = Math.floor(Math.random() * 100);
-      const response = await axios.post('https://graphql.anilist.co', {
-        query: `
-          query {
-            Page(page: ${randomPage}, perPage: 1) {
-              media(type: ANIME) {
-                coverImage {
-                  medium
-                }
-              }
-            }
-          }
-        `,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-      });
-      setFoto(response.data.data.Page.media[0].coverImage.medium);
-    }
-    obtenerPost();
-    fetch('/chats.json')
-      .then(response => response.json())
-      .then(data => setChats(data))
-      .catch(error => console.log(error));
-  }, []);
-  
-  function getRandomName() {
-    const randomIndex = Math.floor(Math.random() * chats.length);
-    const randomChat = chats[randomIndex];
-    if (randomChat && randomChat.nombre) {
-      return randomChat.nombre;
-    } else {
-      return 'Anónimo';
-    }
-  }
-  
-  
+// const CardComment = ({data}) => {
+//   const [comment, setComment] = useState([]);
+//   const [user, setUser] = useState('')
+//   const [post, setPost] = useState('')
+//   console.log(data)
+//   return (
+//     <div className='texto'>
+//       {/* <h1>{data.comment[0].user[0].user}:</h1> */}
+//       <h1>{data.comment?.map((com)=>{ return com.user.user})}:</h1>
+//         <h3>{data.comment?.map((com)=>{ return com.comment})}</h3>
+        
+//     </div>
+//   )
+// }
+
+// export default CardComment;
+import React, { useState, useEffect } from 'react';
+
+const CardComment = ({ data }) => {
+  const [comment, setComment] = useState([]);
+  const [user, setUser] = useState('');
+  const [post, setPost] = useState('');
+
   return (
     <div className='texto'>
-      <h5>{getRandomName()}:</h5>
-      <p>{comment.substring(0, 50)}</p>
+      {data.comment?.map((com) => (
+        <React.Fragment key={com._id}>
+          <h1>{com.user.user}:</h1>
+          <h3>{com.comment}</h3>
+        </React.Fragment>
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default CardComment;
+

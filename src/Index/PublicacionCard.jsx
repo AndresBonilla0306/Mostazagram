@@ -10,6 +10,7 @@ import CardComment from './CardComment';
 const PublicacionCard = ({data}) => {
   
   const [showComments, setShowComments] = useState(false);
+  // console.log(data.comment)
   const toggleComments = () => {
     setShowComments(!showComments);
   };
@@ -34,15 +35,8 @@ const PublicacionCard = ({data}) => {
         
       </div>
       <div className='Comentarios'>
-        {showComments && <ContendorCardComment fetchComment={CardComment} />} 
+        {showComments && <ContendorCardComment data={data}/>}
         <br />
-        {showComments && <ContendorCardComment fetchComment={CardComment} />}
-        <br />
-        {showComments && <ContendorCardComment fetchComment={CardComment} />}
-        <br />
-        {showComments && <ContendorCardComment fetchComment={CardComment} />}
-        <br />
-        {showComments && <ContendorCardComment fetchComment={CardComment} />}
       </div>
     </div>
   )

@@ -6,7 +6,15 @@ const instance = axios.create({
 
 const getPosts = async () => {
   const res = await instance.get("/post/post");
-  console.log(res);
+  // console.log(res);
+  return res.data;
+};
+
+const getPostsId = async (id) => {
+  const res = await instance.get("/post/post", {
+    id,
+  });
+  // console.log(res);
   return res.data;
 };
 
@@ -39,7 +47,6 @@ const subirPost = async (photo, desc, user) => {
 
 const getStorys = async () => {
   const res = await instance.get("/story/story");
-  console.log(res);
   return res.data;
 };
 
@@ -51,4 +58,32 @@ const subirStory = async (photo, user) => {
   return res.data;
 };
 
-export { getPosts, createUser, loginUsuario, subirPost, subirStory, getStorys };
+const getCommetns = async (_id) => {
+  const res = await instance.get("/comment/comment", {
+    _id,
+  });
+  // console.log(res);
+  return res.data;
+};
+
+const createComments = async (comment, user, post) => {
+  const res = await instance.post("/comment/create", {
+    comment,
+    user,
+    post,
+  });
+  // console.log(res);
+  return res.data;
+};
+
+export {
+  getPosts,
+  createUser,
+  loginUsuario,
+  subirPost,
+  subirStory,
+  getStorys,
+  getCommetns,
+  createComments,
+  getPostsId,
+};
