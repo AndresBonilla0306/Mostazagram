@@ -5,6 +5,8 @@ import google from '../assets/assets/img/buttons/BOTON_GOOGLE_Mesa de trabajo 1.
 import { useNavigate } from 'react-router-dom';
 import { loginUsuario } from '../services/post.services'
 import { ToastContainer, toast } from 'react-toastify';
+import { auth } from "../../../firebase.config";
+import { FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -49,6 +51,23 @@ const Login = () => {
     }
   };
   
+  const signInWithFacebook = () => {
+    const provider = new FacebookAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const credential = FacebookAuthProvider.credentialFromResult(result);
+            const user = result.user;
+            const accessToken = credential.accessToken;
+            console.log(user);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = FacebookAuthProvider.credentialFromError(error);
+        });
+};
+onClick={signInWithFacebook}
   return (
     <div className='Login'>
       <div className='ContenedorLogo'>
