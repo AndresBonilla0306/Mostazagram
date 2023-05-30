@@ -6,6 +6,8 @@ import CardComment from './CardComment';
 import { getToken } from '../helpers/localStorage';
 import { extractUser } from '../helpers/jwt';
 import { createComments, getPostsId } from '../services/post.services';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ContendorCardComment = ({data: datas}) => {
@@ -22,20 +24,19 @@ const ContendorCardComment = ({data: datas}) => {
       console.log(idPost)
       const res = await createComments( cComment, uid, idPost);
       console.log('Registro exitoso:', res.data);
+      toast.info('Comentarios actualizados, recarga la página :)')
     } catch (error) {
       console.error('Error al Update:', error.response.data);
     }
-  };
-  const handleReload = () => {
-    window.location.reload();
   };
   return (
     <div>
       <CardComment data={datas}/>
       <form className='ContenedorCommentario' onSubmit={handleSubmit}>
         <input type="text" className='BarComment' value={cComment} onChange={handleCommentChange}/> 
-        <button className='BarSend' onClick={handleReload}>Send</button>
+        <button className='BarSend'>Send</button>
       </form> 
+      <ToastContainer />
     </div>
     
   )
