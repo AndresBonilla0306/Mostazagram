@@ -295,12 +295,12 @@ body{
     background-image: url(../assets/assets/img/Fondito.png);
     background-repeat: no-repeat;
     width: 100%;
-    height: 100vh;
+    height: auto;
     display: flex;
     justify-content: center;
+    flex-direction: row;
     align-items: center;
-    gap: 25%;
-    /* height: 100%; */
+    padding-bottom: -5%;
 }.Login2 {
     background-image: url(../assets/assets/img/Fondito.png);
     width: 100%;
@@ -346,7 +346,36 @@ body{
     background-color: #FDF9D5;
     border: solid 3px #F6B95D;
     color:#F6B95D;
-}.Profile{
+}.LB{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-image: url(../assets/assets/img/Fondito.png);
+    background-repeat: no-repeat;
+}
+.ButtonsSN{
+    width: 8%;
+    margin: 20px;
+    font-size: 1.5vw;
+    padding: 15px;
+    background-color: #FDF9D5;
+    border: solid 2px black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.5s ease-in-out, border 0.5s ease-in-out, color 0.5s ease-in-out;
+
+}.ButtonsSN:hover{
+    background-color: #FDF9D5;
+    border: solid 3px #F6B95D;
+    color:#F6B95D;
+}
+.ButtonsSN img{
+    width: 100%;
+    border: 0px;
+}
+.Profile{
     margin-top: 10%;
     margin-right: 10%;
     margin-left: 5%;
@@ -610,12 +639,6 @@ body{
     transition: width 0.5s ease-in-out;
 }.ContainerStory div button img:hover{
     width: 90%;
-}.ButtonsSN{
-    width: 20%;
-
-}.ButtonsSN img{
-    width: 100%;
-    border: 0px;
 }.ContenedorCommentario{
     border: 0px solid;
     text-align: center;

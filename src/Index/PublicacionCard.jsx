@@ -25,7 +25,6 @@ const PublicacionCard = ({data}) => {
   
   return (
     <div className='Publication'>
-      {/* <h1 className='User'>Holi</h1> */}
       <h1 className='Desc'>{data.desc}</h1>
       <div className='FotoPD'>
         <img src={data.photo} className='FotoP'></img>
@@ -40,8 +39,6 @@ const PublicacionCard = ({data}) => {
           <img src={Share}/>
         </button>
       </div>
-      
-        
       </div>
       <div className='Comentarios'>
         {showComments && <ContendorCardComment data={data}/>}

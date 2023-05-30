@@ -101,42 +101,45 @@ const signInWithGoogle = () => {
   };
 
   return (
-    <div className='Login'>
-      <div className='ContenedorLogo'>
-        <img src={Logo}></img>
+    <div >
+      <div className='Login'>
+        <div className='ContenedorLogo'>
+          <img src={Logo}></img>
+        </div>
+        <form className='Form' onSubmit={handleSubmit}>
+          <h1>Mostazagram</h1>
+            <input
+              type='text'
+              placeholder="User"
+              value={user}
+              onChange={handleUsernameChange}
+              name="uname"
+            />
+            <br/>
+            <input
+              type="password"
+              placeholder="Password"
+              value={pass} 
+              onChange={handlePasswordChange}
+              name="pass"
+            />
+            <br/>
+          
+          
+          <br/>
+          <button type="submit">Iniciar sesion</button><br/>
+          
+          <button onClick={Register}>¿No tienes una cuenta?</button>
+        </form>
       </div>
-      <form className='Form' onSubmit={handleSubmit}>
-        <h1>Mostazagram</h1>
-          <input
-            type='text'
-            placeholder="User"
-            value={user}
-            onChange={handleUsernameChange}
-            name="uname"
-          />
-          <br/>
-          <input
-            type="password"
-            placeholder="Password"
-            value={pass} 
-            onChange={handlePasswordChange}
-            name="pass"
-          />
-          <br/>
-        
-        
-        <br/>
-        <button type="submit">Iniciar sesion</button><br/>
-        
-        <button onClick={Register}>¿No tienes una cuenta?</button>
-      </form>
-      <button className='ButtonsSN' onClick={signInWithFacebook}>
+      <div className='LB'>
+        <button className='ButtonsSN' onClick={signInWithFacebook}>
           <img src={facebook}/>
         </button>
         <button className='ButtonsSN' onClick={signInWithGoogle}>
           <img src={google}/>
         </button> 
-
+      </div>
       <ToastContainer />
     </div>
     
